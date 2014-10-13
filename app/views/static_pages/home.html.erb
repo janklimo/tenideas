@@ -1,10 +1,7 @@
 <div class="home-masthead ">
 	<div class="container">  
 	  <h1>Develop your idea muscle with regular exercise</h1>
-
-	  <h2>
-	    Real businesses, real inspiration, real difference
-	  </h2>
+	  <h2>Real businesses, real inspiration, real difference</h2>
 
 	  <%= link_to "Start now", '#', class: "btn btn-large btn-primary call-to-action" %>
   </div>
@@ -31,12 +28,44 @@
 	</div>
 </div>
 
-<div class="container separator">
+<div class="container">
+	<div class="divider-arrow">
+		<span>
+			<%= image_tag("divider-arrow.png")  %>
+		</span>
+	</div>
 	<div class="section-headline">Take Today's Challenge</div>
+	<div class="row">
+		<div class="col-md-6">
+			<%= image_tag("thumbnail.jpg", class: "thumbnail center-block")  %>
+
+			<div class='l-quote quote'>
+			  <blockquote>
+			    <p>We are a company producing tailor made shirts. I'd love to hear your ideas on how we can improve our website, user experience, how we can better promote our product, what kind of partnerships to work on, etc.</p>
+			  </blockquote>
+			  <cite>Jan Klimo</cite>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<%= link_to "#" do  %>
+				<%= image_tag("fb_sign_in.png", class: "center-block")  %>
+			<% end %> 
+
+			<%= link_to "#" do  %>
+				<%= image_tag("twitter_sign_in.png", class: "center-block")  %>
+			<% end %>
+		</div>
+
+	</div>
 	 
 </div>
 
-<div class="container separator">
+<div class="container">
+	<div class="divider-arrow">
+		<span>
+			<%= image_tag("divider-arrow.png")  %>
+		</span>
+	</div>
 	<div class="section-headline">All Time Idea Machines</div>
 	 
 </div>
