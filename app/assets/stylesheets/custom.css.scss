@@ -161,6 +161,10 @@ p {
   margin-top: 30px;
 }
 
+.left-separator {
+  border-left: 1px solid #d6c7ff;
+}
+
 .icon-headline {
   font-size: 1.5em;
   text-align: left;
@@ -209,7 +213,7 @@ p {
   padding: 15px 25px 20px;
   margin: 20px auto;
   color: #fff;
-  background: #1abc9c;
+  background: #304269;
   width: 80%;
 }
 
@@ -225,8 +229,18 @@ p {
     right: 83px;
     border-width: 0 18px 37px;
     border-style: solid;
-    border-color: #1abc9c transparent;
+    border-color: #304269 transparent;
   }
+}
+
+.quote a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.quote a:hover {
+  color: #fff;
+  text-decoration: underline;
 }
 
 blockquote {
@@ -242,6 +256,31 @@ cite {
   }
 }
 
+.brainstorm-icons {
+  width: 30px;
+  margin: 0 20px;
+}
+
+.brainstorm-icon-text {
+  font-size: 1.1em;
+  text-align: left;
+  margin: 0 0 28px 0;
+}
+
+.brainstorm-icons-font {
+  color: #ff500b;
+  width: 70px;
+  float: left;
+  font-size: 1.8em;
+  text-align: center;
+  margin: -6px 0 20px 0;
+}
+
+.submit-prompt {
+  font-size: 1em;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
 
 /* footer */
 
