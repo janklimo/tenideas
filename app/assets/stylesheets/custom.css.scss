@@ -277,6 +277,15 @@ cite {
   margin: 0 0 28px 0;
 }
 
+.brainstorm-icon-text a {
+  color: #ff500b;
+  text-decoration: none;
+  &:hover {
+      color: #ff500b;
+      text-decoration: none;
+    }
+}
+
 .brainstorm-icons-font {
   color: #ff500b;
   width: 70px;
@@ -311,7 +320,7 @@ cite {
 footer {
   background: #304269;
   height: 100px;
-  padding-top: 30px;
+  padding-top: 15px !important;
   margin-top: 45px;
   padding-top: 5px;
   color: #ffffff;
