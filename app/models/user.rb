@@ -57,6 +57,6 @@ class User < ActiveRecord::Base
   end
 
   def problem_defined?
-  	self.problem_definition
+  	self.problem_definition != ""
   end
 end
