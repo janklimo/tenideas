@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="almost-there">
+		<h1>Log in</h1>
+		<h2>You'll need to log in or sign up first. <br>10 seconds tops.</h2>
+		
+		<%= link_to user_omniauth_authorize_path(:facebook) do  %>
+			<%= image_tag("fb_sign_in.png", class: "center-block")  %>
+		<% end %> 
+
+		<%= link_to "#" do  %>
+			<%= image_tag("twitter_sign_in.png", class: "center-block")  %>
+		<% end %>
+	</div>
+</div>

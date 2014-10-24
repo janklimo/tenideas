@@ -3,8 +3,7 @@ ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -15,9 +14,18 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 
-  gem "therubyracer"
-	gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-	gem "twitter-bootstrap-rails"
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
+# Sign ups and authentication
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+# read FB OpenGraph
+gem "koala"
 
 
 # Use jquery as the JavaScript library
@@ -37,11 +45,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 group :production do
   gem 'pg', '0.15.1'

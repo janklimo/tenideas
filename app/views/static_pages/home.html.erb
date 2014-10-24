@@ -58,7 +58,7 @@
 			<div class="clearfix"></div>
 			<div class="section-headline">Submit</div>
 			<p class="submit-prompt">You'll need to sign up first. It takes no more than 30 seconds.</p>
-				<%= link_to "#" do  %>
+				<%= link_to user_omniauth_authorize_path(:facebook) do  %>
 					<%= image_tag("fb_sign_in.png", class: "center-block")  %>
 				<% end %> 
 
