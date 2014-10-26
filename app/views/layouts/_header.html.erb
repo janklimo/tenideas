@@ -16,13 +16,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right navbar-customized">
-        <li><a href="#" class="highlight">Today's challenge</a></li>
-        <li><a href="#">Rankings</a></li>
+        <li><a href="<%= root_url + '#challenge' %>" class="highlight">Today's challenge</a></li>
+        <li><a href="#rankings">Rankings</a></li>
         <% if user_signed_in?  %>
         <li class="greeting">Hey, <%= current_user.name.split[0] %>!</li>
         <li class="dropdown">
           <%= link_to "#", :class => "dropdown-toggle", "data-toggle" => "dropdown" do  %>
-            <%= image_tag profile_pic_url, alt: "sexy_you", class: "thumbnail-tiny" %>
+            <%= image_tag profile_pic_url(current_user), alt: "sexy_you", class: "thumbnail-tiny" %>
             <span class="caret"></span>
           <% end %>
           <ul class="dropdown-menu" role="menu">
@@ -33,7 +33,9 @@
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </li>
-        <% end %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: "btn btn-large btn-primary header-button" %>
+        <% end%>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

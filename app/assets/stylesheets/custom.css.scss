@@ -130,25 +130,47 @@ p {
 }
 
 .call-to-action {
-  background: #ff804f;
+  background: #ff804f !important;
   text-align: center;
   font-size: 1.1em;
   color: #ffffff;
-  border-radius: 18px;
-  border: 2px solid #ffffff;
+  border-radius: 15px;
+  border: 2px solid #ffffff  !important;
   padding: 15px;
   margin-top: 5px;
   transition: background-color 0.5s ease;
 }
 
-.call-to-action:hover {
-  background: #ff500b;
+.call-to-action:hover, .call-to-action:active {
+  background: #ff500b  !important;
   font-size: 1.1em;
   color: #ffffff;
-  border-radius: 18px;
-  border: 2px solid #ffffff;
+  border-radius: 15px;
+  border: 2px solid #ffffff  !important;
   padding: 15px;
   margin-top: 5px;
+}
+
+.header-button {
+  background: #ff804f  !important;
+  text-align: center;
+  font-size: 1em;
+  color: #ffffff;
+  border-radius: 15px;
+  border: 2px solid #ffffff  !important;
+  padding: 10px;
+  margin-top: 3px;
+  transition: background-color 0.5s ease;
+}
+
+.header-button:hover, .header-button:active {
+  background: #ff500b  !important;
+  font-size: 1em;
+  color: #ffffff;
+  border-radius: 15px;
+  border: 2px solid #ffffff  !important;
+  padding: 10px;
+  margin-top: 3px;
 }
 
 /* How does it work section */
@@ -418,3 +440,23 @@ input {
     background-color: #DFF0D8;
     border-color: #D6E9C6;
 }
+
+.alert {
+    padding: 15px;
+    margin: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    
+}
+
+.notice, .alert:first-child {
+    padding: 15px;
+    margin: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #3C763D;
+    background-color: #DFF0D8;
+    border-color: #D6E9C6;
+    
+}
+

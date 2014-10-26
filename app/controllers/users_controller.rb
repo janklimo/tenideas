@@ -36,6 +36,9 @@ class UsersController < ApplicationController
         @user.skip_confirmation! if @user.respond_to?(:skip_confirmation)
         sign_in(@user, :bypass => true)
         redirect_to @user, notice: 'Your profile was successfully updated.'
+
+        # new DB field for welcome email sent?
+        UserNotifier.send_signup_email(current_user).deliver if current_user.sign_in_count == 1
       else
         render 'finish_signup'
       end

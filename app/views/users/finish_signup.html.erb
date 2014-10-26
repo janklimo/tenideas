@@ -1,7 +1,5 @@
 <div class="container">
 
-  
-
   <div class="almost-there">
     <h1>Almost there!</h1>
     <h2>Please tell us more about yourself and your company or project, so that other users can brainstorm ideas for you.</h2>
@@ -36,7 +34,7 @@
         <div class="controls">
           <div class="input-group">
             <span class="input-group-addon">@</span>
-            <%= f.text_field :twitter_handle, :autofocus => false, :value => twitter_username, class: 'form-control input-lg', placeholder: 'Username' %>
+            <%= f.text_field :twitter_handle, :autofocus => false, :value => twitter_username(current_user), class: 'form-control input-lg', placeholder: 'Username' %>
           </div>
         </div>
 

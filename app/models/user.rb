@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Ayour@email/
 
   has_many :identities
+  has_many :ideas
+
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
@@ -43,6 +45,7 @@ class User < ActiveRecord::Base
           password: Devise.friendly_token[0,20]
         )
         user.save!
+
       end
     end
 

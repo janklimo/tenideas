@@ -34,37 +34,116 @@
 			<%= image_tag("divider-arrow.png")  %>
 		</span>
 	</div>
-	<div class="section-headline">Take Today's Challenge</div>
+	<div class="section-headline" id="challenge">Take Today's Challenge</div>
 	<div class="row">
 		<div class="col-md-6">
-			<%= image_tag("thumbnail.jpg", class: "thumbnail center-block")  %>
+			<% if @featured_user %>
+			<%= image_tag(profile_pic_url(@featured_user), class: "thumbnail center-block")  %>
 
 			<div class='l-quote quote'>
 			  <blockquote>
-			    <p>We are a company producing tailor made shirts. I'd love to hear your ideas on how we can improve our website, user experience, how we can better promote our product, what kind of partnerships to work on, etc.</p>
+			    <p><%= @featured_user.problem_definition %></p>
 			  </blockquote>
-			  <cite>Jan Klimo, <a target="_blank" href="#">Big Mango Ltd</a></cite>
+			  <cite><%= @featured_user.name %>, <a target="_blank" href="<%= 'http://' + @featured_user.url %>"><%= @featured_user.company %></a></cite>
 			</div>
 		</div>
 		<div class="col-md-6 left-separator">
 			<div class="section-headline">Brainstorm</div>
 			<div class="brainstorm-icon-text">
-				<%= image_tag("link_icon.png", class: "brainstorm-icons")  %>Visit <a target="_blank" href="#">Big Mango Ltd</a>. Browse around to get inspiration for your ideas.
+				<%= image_tag("link_icon.png", class: "brainstorm-icons")  %>Visit <a target="_blank" href="<%= 'http://' + @featured_user.url %>"><%= @featured_user.company %></a>. Browse around to get inspiration for your ideas.
 			</div>
+			<% end %>
 			<div class="brainstorm-icon-text">
 				<div class="brainstorm-icons-font" data-icon="&#xe00e;"></div>Come up with 10 ideas and submit them below!
 			</div>
 				
 			<div class="clearfix"></div>
 			<div class="section-headline">Submit</div>
-			<p class="submit-prompt">You'll need to sign up first. It takes no more than 30 seconds.</p>
-				<%= link_to user_omniauth_authorize_path(:facebook) do  %>
-					<%= image_tag("fb_sign_in.png", class: "center-block")  %>
-				<% end %> 
+			<% if !user_signed_in?  %>
+				<p class="submit-prompt">You'll need to sign up first. It takes no more than 30 seconds.</p>
+					<%= link_to user_omniauth_authorize_path(:facebook) do  %>
+						<%= image_tag("fb_sign_in.png", class: "center-block")  %>
+					<% end %> 
 
-				<%= link_to user_omniauth_authorize_path(:twitter) do  %>
-					<%= image_tag("twitter_sign_in.png", class: "center-block")  %>
+					<%= link_to user_omniauth_authorize_path(:twitter) do  %>
+						<%= image_tag("twitter_sign_in.png", class: "center-block")  %>
+					<% end %>
+			<% elsif current_user.ideas.today.featured.count < 1 %>
+				<p class="submit-prompt">These 10 fields are all yours.</p>
+
+				<% if @idea.errors.any? %>
+		      <div id="error_explanation">
+		        <div class="alert alert-danger">
+		          Oops! We'll need you to fix <%= pluralize(@idea.errors.count, "error") %>.
+		        </div>
+		        <ul>
+		        <% @idea.errors.full_messages.each do |msg| %>
+		          <li>* <%= msg %></li>
+		        <% end %>
+		        </ul> 
+		      </div>
+		    <% end %>
+
+				<%= form_for(@idea) do |f| %>
+				  
+					<%= f.label :idea1, 'Idea #1' %>
+        	<div class="controls">
+          	<%= f.text_field :idea1, :autofocus => true, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+
+        	<%= f.label :idea1, 'Idea #2' %>
+        	<div class="controls">
+          	<%= f.text_field :idea2, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+
+        	<%= f.label :idea1, 'Idea #3' %>
+        	<div class="controls">
+          	<%= f.text_field :idea3, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+
+        	<%= f.label :idea1, 'Idea #4' %>
+        	<div class="controls">
+          	<%= f.text_field :idea4, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+
+        	<%= f.label :idea1, 'Idea #5' %>
+        	<div class="controls">
+          	<%= f.text_field :idea5, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+
+        	<%= f.label :idea1, 'Idea #6' %>
+        	<div class="controls">
+          	<%= f.text_field :idea6, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+
+        	<%= f.label :idea1, 'Idea #7' %>
+        	<div class="controls">
+          	<%= f.text_field :idea7, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+
+        	<%= f.label :idea1, 'Idea #8' %>
+        	<div class="controls">
+          	<%= f.text_field :idea8, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+
+        	<%= f.label :idea1, 'Idea #9' %>
+        	<div class="controls">
+          	<%= f.text_field :idea9, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+
+        	<%= f.label :idea1, 'Idea #10' %>
+        	<div class="controls">
+          	<%= f.text_field :idea10, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
+        	</div>
+				  
+				  <%= f.hidden_field :recipient, :value => 1 %>
+				  <%= f.hidden_field :featured, :value => 'true' %>
+
+				  <%= f.submit "Post", class: "btn btn-primary" %>
 				<% end %>
+			<% else %>
+				<p class="submit-prompt">Thank you for taking today's challenge!</p>
+			<% end %>
 		</div>
 	</div>
 	 
@@ -76,7 +155,7 @@
 			<%= image_tag("divider-arrow.png")  %>
 		</span>
 	</div>
-	<div class="section-headline">All Time Idea Machines</div>
+	<div class="section-headline" id="rankings">All Time Idea Machines</div>
 	<table class="table table-hover all-time-table ">
       <thead>
         <tr>
@@ -121,7 +200,7 @@
     </table>
 		
 		<p class="text-center">
-    	<%= link_to "I wanna be an Idea Machine", '#', class: "btn btn-large btn-primary call-to-action" %>
+    	<%= link_to "I wanna be an Idea Machine", new_user_session_path, class: "btn btn-large btn-primary call-to-action" %>
     </p>
 	 
 </div>
