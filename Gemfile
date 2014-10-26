@@ -27,6 +27,9 @@ gem 'omniauth-facebook'
 # read FB OpenGraph
 gem "koala"
 
+# Twitter login handling
+gem "twitter"
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -7,7 +7,7 @@
 			<%= image_tag("fb_sign_in.png", class: "center-block")  %>
 		<% end %> 
 
-		<%= link_to "#" do  %>
+		<%= link_to user_omniauth_authorize_path(:twitter) do  %>
 			<%= image_tag("twitter_sign_in.png", class: "center-block")  %>
 		<% end %>
 	</div>

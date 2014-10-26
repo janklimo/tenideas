@@ -3,7 +3,7 @@
 	  <h1>Develop your idea muscle with regular exercise</h1>
 	  <h2>Real businesses, real inspiration, real difference</h2>
 
-	  <%= link_to "Start now", '#', class: "btn btn-large btn-primary call-to-action" %>
+	  <%= link_to "Start now", new_user_session_path, class: "btn btn-large btn-primary call-to-action" %>
   </div>
 </div>
 
@@ -62,7 +62,7 @@
 					<%= image_tag("fb_sign_in.png", class: "center-block")  %>
 				<% end %> 
 
-				<%= link_to "#" do  %>
+				<%= link_to user_omniauth_authorize_path(:twitter) do  %>
 					<%= image_tag("twitter_sign_in.png", class: "center-block")  %>
 				<% end %>
 		</div>

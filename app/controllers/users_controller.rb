@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id.:format
   def update
+  	# todo: check if we have all the data filled in
     # authorize! :update, @user
     respond_to do |format|
       if @user.update(user_params)
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
         sign_in(@user, :bypass => true)
         redirect_to @user, notice: 'Your profile was successfully updated.'
       else
-        @show_errors = true
+        render 'finish_signup'
       end
     end
   end

@@ -1,15 +1,26 @@
 <div class="container">
+
+  
+
   <div class="almost-there">
     <h1>Almost there!</h1>
     <h2>Please tell us more about yourself and your company or project, so that other users can brainstorm ideas for you.</h2>
+    
     <%= form_for(current_user, :as => 'user', :url => finish_signup_path(current_user), :html => { role: 'form'}) do |f| %>
-      <% if @show_errors && current_user.errors.any? %>
-        <div id="error_explanation">
-          <% current_user.errors.full_messages.each do |msg| %>
-            <%= msg %><br>
-          <% end %>
+      
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          Oops! We'll need you to fix <%= pluralize(@user.errors.count, "error") %>.
         </div>
-      <% end %>
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li>* <%= msg %></li>
+        <% end %>
+        </ul> 
+      </div>
+    <% end %>
+
       <div class="form-group">
         <%= f.label :name %>
         <div class="controls">
@@ -25,7 +36,7 @@
         <div class="controls">
           <div class="input-group">
             <span class="input-group-addon">@</span>
-            <%= f.text_field :twitter_handle, :autofocus => false, :value => current_user.twitter_handle, class: 'form-control input-lg', placeholder: 'Username' %>
+            <%= f.text_field :twitter_handle, :autofocus => false, :value => twitter_username, class: 'form-control input-lg', placeholder: 'Username' %>
           </div>
         </div>
 
@@ -44,7 +55,7 @@
 
         <%= f.label :problem_definition %>
         <div class="controls">
-          <%= f.text_area :problem_definition, :autofocus => false, :value => current_user.problem_definition, cols: 50, rows: 5, class: 'form-control input-lg', placeholder: 'Tell us more about your project. What is it about? What ideas are you looking for?' %>
+          <%= f.text_area :problem_definition, :autofocus => false, cols: 50, rows: 5, class: 'form-control input-lg', placeholder: 'Tell us more about your project. What is it about? What ideas are you looking for?' %>
         </div>
 
       </div>

@@ -1,11 +1,50 @@
 module ApplicationHelper
-	def profile_pic_url
-    	@graph = Koala::Facebook::API.new
 
-    	if current_user.identities[0].provider == "facebook"
-    		id = current_user.identities[0].uid
+	def profile_pic_url
+
+		# todo: show picture of the currently used identity + fix twitter
+    	graph = Koala::Facebook::API.new
+
+    	client = Twitter::REST::Client.new do |config|
+			  config.consumer_key        = "IQSpmVTl1S42EJENiWMRRTlIJ"
+			  config.consumer_secret     = "gLvrNDFb6N8peeRYf0CoWXOHB6KCPbRx2wrECWeeKtcrfqLm31"
+			  #config.access_token        = "YOUR_ACCESS_TOKEN"
+		  	#config.access_token_secret = "YOUR_ACCESS_SECRET"
+			end
+
+    	current_user.identities.each do |identity|
+				if identity.provider == "facebook"
+	    		id = identity.uid
+	    		@url = graph.get_picture(id, height: 200, width: 200) 
+	    	end
+
+	    	if identity.provider == "twitter"
+	    		id = identity.uid
+	    		@url = client.user(id.to_i).profile_image_url
+	    	end
     	end
 
-    	@graph.get_picture(id, height: 200, width: 200) 
+   	@url.to_str.remove("_normal")
+  end
+
+  def twitter_username
+  	client = Twitter::REST::Client.new do |config|
+		  config.consumer_key        = "IQSpmVTl1S42EJENiWMRRTlIJ"
+		  config.consumer_secret     = "gLvrNDFb6N8peeRYf0CoWXOHB6KCPbRx2wrECWeeKtcrfqLm31"
+		  #config.access_token        = "YOUR_ACCESS_TOKEN"
+	  	#config.access_token_secret = "YOUR_ACCESS_SECRET"
+		end
+
+		current_user.identities.each do |identity|
+	    if identity.provider == "twitter"
+    		id = identity.uid
+    		@username = client.user(id.to_i).screen_name
+    	end
     end
+
+   	@username
+  end
+
+
+
 end

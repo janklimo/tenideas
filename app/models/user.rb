@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  TEMP_EMAIL_PREFIX = 'change@me'
-  TEMP_EMAIL_REGEX = /\Achange@me/
+  TEMP_EMAIL_PREFIX = 'your@email'
+  TEMP_EMAIL_REGEX = /\Ayour@email/
 
   has_many :identities
 
@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  validates :name, presence: true, length: {  maximum: 50  }
+  validates :problem_definition, presence: true, length: {  maximum: 1000  }, on: :update
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -57,6 +59,6 @@ class User < ActiveRecord::Base
   end
 
   def problem_defined?
-  	self.problem_definition != ""
+  	self.problem_definition?
   end
 end
