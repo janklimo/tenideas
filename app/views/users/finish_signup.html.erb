@@ -4,7 +4,7 @@
     <h1>Almost there!</h1>
     <h2>Please tell us more about yourself and your company or project, so that other users can brainstorm ideas for you.</h2>
     
-    <%= form_for(current_user, :as => 'user', :url => finish_signup_path(current_user), :html => { role: 'form'}) do |f| %>
+    <%= form_for(@user, :url => finish_signup_path(@user), :html => { role: 'form'}) do |f| %>
       
     <% if @user.errors.any? %>
       <div id="error_explanation">
@@ -34,20 +34,20 @@
         <div class="controls">
           <div class="input-group">
             <span class="input-group-addon">@</span>
-            <%= f.text_field :twitter_handle, :autofocus => false, :value => twitter_username(current_user), class: 'form-control input-lg', placeholder: 'Username' %>
+            <%= f.text_field :twitter_handle, :autofocus => false, class: 'form-control input-lg', placeholder: 'Username' %>
           </div>
         </div>
 
         <%= f.label :company %>
         <div class="controls">
-          <%= f.text_field :company, :autofocus => false, :value => current_user.company, class: 'form-control input-lg', placeholder: 'Name of your company or project' %>
+          <%= f.text_field :company, :autofocus => false,  class: 'form-control input-lg', placeholder: 'Name of your company or project' %>
         </div>
 
         <%= f.label :url %>
         <div class="controls">
           <div class="input-group">
             <span class="input-group-addon">http://</span>
-            <%= f.text_field :url, :autofocus => false, :value => current_user.url, class: 'form-control input-lg', placeholder: 'URL of your company or project' %>
+            <%= f.text_field :url, :autofocus => false, class: 'form-control input-lg', placeholder: 'URL of your company or project' %>
             </div>
         </div>
 

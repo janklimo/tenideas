@@ -136,7 +136,7 @@
           	<%= f.text_field :idea10, :autofocus => false, class: 'form-control input-lg', placeholder: 'Your idea' %>
         	</div>
 				  
-				  <%= f.hidden_field :recipient, :value => 1 %>
+				  <%= f.hidden_field :recipient, :value => @featured_user.id %>
 				  <%= f.hidden_field :featured, :value => 'true' %>
 
 				  <%= f.submit "Post", class: "btn btn-primary" %>

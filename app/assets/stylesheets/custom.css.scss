@@ -160,6 +160,7 @@ p {
   border: 2px solid #ffffff  !important;
   padding: 10px;
   margin-top: 3px;
+  margin-left: 20px;
   transition: background-color 0.5s ease;
 }
 
@@ -171,6 +172,7 @@ p {
   border: 2px solid #ffffff  !important;
   padding: 10px;
   margin-top: 3px;
+  margin-left: 20px;
 }
 
 /* How does it work section */
@@ -203,6 +205,10 @@ p {
 
 .left-separator {
   border-left: 1px solid #d6c7ff;
+}
+
+.right-separator {
+  border-right: 1px solid #d6c7ff;
 }
 
 .icon-headline {
@@ -460,3 +466,18 @@ input {
     
 }
 
+/* user home */
+
+.user-home-container {
+  margin-top: 40px;
+}
+
+.user-home-profile {
+  font-size: 1.1em;
+  text-align: center;
+  margin: 12px auto;
+}
+
+.user-home-profile #quote {
+  padding: 10px;
+}

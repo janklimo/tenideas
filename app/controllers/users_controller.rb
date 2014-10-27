@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         # new DB field for welcome email sent?
         UserNotifier.send_signup_email(current_user).deliver if current_user.sign_in_count == 1
       else
-        render 'finish_signup'
+        render :action=>'finish_signup'
       end
     end
   end
