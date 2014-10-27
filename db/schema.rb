@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026153930) do
+ActiveRecord::Schema.define(version: 20141027050342) do
 
   create_table "ideas", force: true do |t|
     t.integer  "user_id"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20141026153930) do
     t.string   "twitter_handle"
     t.string   "company"
     t.string   "url"
-    t.string   "problem_definition"
+    t.text     "problem_definition"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
