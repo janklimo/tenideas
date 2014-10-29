@@ -27,10 +27,11 @@
 								<a href="http://www.twitter.com/?status=@<%= User.find(idea.user_id).twitter_handle %> Thank you for your @tenideas, <%= User.find(idea.user_id).name.split[0] %>!" target="_blank"><%= image_tag('twitter.png', class: "author-icons")  %></a>
 							<% end %>
 
-							<!-- todo: check if email is private  -->
+							<% if User.find(idea.user_id).public_email %>
 							<a href="mailto:<%= User.find(idea.user_id).email %>?Subject=Thank you for the ideas, <%= User.find(idea.user_id).name.split[0] %>!" target="_blank">
 								<%= image_tag('email.png', class: "author-icons")  %>
 								</a>
+							<% end %>
 						</div>
 					</div>
 
