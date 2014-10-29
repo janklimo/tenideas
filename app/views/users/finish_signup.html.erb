@@ -30,6 +30,16 @@
           <%= f.text_field :email, :autofocus => true, :value => current_user.email, class: 'form-control input-lg', placeholder: 'your@email.com' %>
         </div>
 
+        <%= f.label :public_email %>
+        <div class="controls">
+          <div class="checkbox">
+            <label>
+              <%= f.check_box :public_email %>
+              This allows other users to follow up on the ideas you sent them. A great way to connect!
+            </label>
+           </div>
+         </div>   
+
         <%= f.label :twitter_handle %>
         <div class="controls">
           <div class="input-group">
@@ -58,7 +68,7 @@
 
       </div>
       <div class="actions">
-        <%= f.submit 'Done!', :class => 'btn btn-primary' %>
+        <%= f.submit 'Done!', :class => 'btn btn-primary full-width' %>
       </div>
     <% end %>
   </div>

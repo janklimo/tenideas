@@ -1,0 +1,98 @@
+<div class="container">
+	<div class="row user-home-container">
+		<%= render 'shared/sidebar'  %>
+		<div class="col-md-9">
+			
+			<h1>Ideas For You</h1>
+			<% if @ideas.count > 0 %>
+				<h2>Here's a list of ideas you've received so far.</h2>
+			<% else %>
+				<h2>No ideas yet. Check back soon!</h2>
+			<% end %>	
+
+			<div class="center-pagination">
+				<%= will_paginate %>
+			</div>
+
+			<% @ideas.each do |idea| %>
+				<div class="row user-home-container">
+					<div class="col-md-3">
+						<%= image_tag(profile_pic_url(User.find(idea.user_id)), class: "mini-thumbnail center-block", alt: "mini thumbnail")  %>
+						<h2 class="mini"><%= User.find(idea.user_id).name %></h2>
+
+
+
+						<div class="author-icons">
+							<% if User.find(idea.user_id).twitter_handle %>
+								<a href="http://www.twitter.com/?status=@<%= User.find(idea.user_id).twitter_handle %> Thank you for your @tenideas, <%= User.find(idea.user_id).name.split[0] %>!" target="_blank"><%= image_tag('twitter.png', class: "author-icons")  %></a>
+							<% end %>
+
+							<!-- todo: check if email is private  -->
+							<a href="mailto:<%= User.find(idea.user_id).email %>?Subject=Thank you for the ideas, <%= User.find(idea.user_id).name.split[0] %>!" target="_blank">
+								<%= image_tag('email.png', class: "author-icons")  %>
+								</a>
+						</div>
+					</div>
+
+					<div class="col-md-9">
+						<div class="highlight idea-date"><%= idea.created_at.strftime("%d %b %y") %></div>	 
+						
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea1 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea1 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea2 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea2 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea3 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea3 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea4 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea4 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea5 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea5 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea6 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea6 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea7 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea7 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea8 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea8 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea9 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea9 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+						<div class="idea-text"><span class="ideas-bullet" data-icon="&#xe00e;"></span><%= idea.idea10 %>
+							<a href="http://twitter.com/home/?status=<%= idea.idea10 %> via @tenideas" target="_blank">
+								<%= image_tag('twitter.png', class: "twitter-icon")  %> 
+							</a>
+						</div> 
+					</div>		
+				</div>
+			<% end %> <!-- end of idea partial  -->
+			<div class="center-pagination">
+				<%= will_paginate %>
+			</div>
+		</div>
+	</div>
+</div>

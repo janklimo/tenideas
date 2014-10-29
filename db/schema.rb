@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027050342) do
+ActiveRecord::Schema.define(version: 20141029151822) do
 
   create_table "ideas", force: true do |t|
     t.integer  "user_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20141027050342) do
     t.boolean  "featured"
   end
 
+  add_index "ideas", ["recipient"], name: "index_ideas_on_recipient"
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id"
 
   create_table "identities", force: true do |t|
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 20141027050342) do
     t.string   "company"
     t.string   "url"
     t.text     "problem_definition"
+    t.boolean  "public_email"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

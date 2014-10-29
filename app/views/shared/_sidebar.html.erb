@@ -1,0 +1,17 @@
+<div class="col-md-3 right-separator">	
+	<%= image_tag(profile_pic_url(current_user), class: "thumbnail center-block")  %>
+	<h2><strong><%= current_user.name %></strong></h2>
+	<div class="user-home-profile"><a target="_blank" href="<%= 'http://' + current_user.url %>"><%= current_user.company %></a></div>
+	<% if current_user.twitter_handle != nil %>
+		<div class="user-home-profile"><a target="_blank" href="<%= 'http://www.twitter.com/' + current_user.twitter_handle %>">@<%= current_user.twitter_handle %></a></div>
+	<% end %>
+	<div class="user-home-profile">
+		<div id="quote">
+			<%= current_user.problem_definition %>
+		</div>
+	</div>
+	<p class="text-center">
+		<%= link_to "Edit", finish_signup_path(current_user), class: "highlight" %>
+	</p>
+
+</div>

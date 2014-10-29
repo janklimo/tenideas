@@ -27,10 +27,10 @@
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <li><a href="<%= user_path(current_user) %>">Your profile</a></li>
-            <li><a href="#">Ideas for you <span class="label label-info">140</span></a></li>
+            <li><a href="<%= ideas_path %>">Ideas for you</a></li>
             <li><a href="#">Your ideas</a></li>
             <li class="divider"></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="<%= finish_signup_path(current_user) %> ">Settings</a></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </li>

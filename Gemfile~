@@ -33,8 +33,6 @@ gem "twitter"
 # JSON generation
 gem "rabl"
 
-gem 'will_paginate'
-
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

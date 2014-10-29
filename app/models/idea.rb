@@ -14,4 +14,6 @@ class Idea < ActiveRecord::Base
 
   scope :today, lambda { where('DATE(created_at) = ?', Date.today)}
   scope :featured, lambda { where(featured: true) }
+
+  self.per_page = 3
 end

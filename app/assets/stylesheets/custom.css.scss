@@ -249,6 +249,11 @@ p {
   border-radius: 50%;
 }
 
+.mini-thumbnail {
+  height: 80px;
+  border-radius: 50%;
+}
+
 .thumbnail-table {
   height: 45px;
   border-radius: 50%;
@@ -409,7 +414,7 @@ footer {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  
   margin-bottom: 15px;
   @include box_sizing;
 }
@@ -418,17 +423,8 @@ input {
   height: auto !important;
 }
 
-#error_explanation {
-  color: #f00;
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .control-group;
-  @extend .error;
+.full-width {
+  width: 100%;
 }
 
 /* Finish signup */
@@ -480,4 +476,57 @@ input {
 
 .user-home-profile #quote {
   padding: 10px;
+}
+
+/* Ideas for you */
+
+.mini {
+  color: #524b4b;
+  font-family: 'ProximaNova-Light';
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.ideas-bullet {
+  color: #ff500b;
+  font-size: 1.8em;
+  text-align: left;
+  padding: 0 20px 0 0; 
+}
+
+.idea-text {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.idea-text a {
+  display:none;
+}
+
+.idea-text:hover a { 
+  display:inline;  
+}
+
+.idea-date {
+  margin-bottom: 25px;
+}
+
+.twitter-icon {
+  height: 17px;
+  padding-left: 30px;
+}
+
+.author-icons {
+  text-align: center;
+  img {
+    height: 17px;
+    margin: 3px;
+  }
+}
+
+.center-pagination {
+  text-align: center;
+  margin: 20px auto;
 }
